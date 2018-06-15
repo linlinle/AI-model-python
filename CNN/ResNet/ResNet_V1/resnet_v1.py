@@ -17,7 +17,7 @@
 The 'v1' residual networks (ResNets) implemented in this module were proposed
 by:
 [1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-    Deep Residual Learning for Image_Recognition. arXiv:1512.03385
+    Deep Residual Learning for Re_classfying. arXiv:1512.03385
 
 Other variants were introduced in:
 [2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
@@ -141,7 +141,7 @@ def resnet_v1(inputs,
   """Generator for v1 ResNet_V2 models.
 
   This function generates a family of ResNet_V2 v1 models. See the resnet_v1_*()
-  methods for specific model instantiations, obtained by selecting different
+  methods for specific Re_classifying instantiations, obtained by selecting different
   block instantiations that produce ResNets of various depths.
 
   Training for image classification on Imagenet is usually done with [224, 224]
@@ -265,7 +265,7 @@ def resnet_v1_50(inputs,
                  spatial_squeeze=True,
                  reuse=None,
                  scope='resnet_v1_50'):
-  """ResNet_V2-50 model of [1]. See resnet_v1() for arg and return description."""
+  """ResNet_V2-50 Re_classifying of [1]. See resnet_v1() for arg and return description."""
   blocks = [
       resnet_v1_block('block1', base_depth=64, num_units=3, stride=2),
       resnet_v1_block('block2', base_depth=128, num_units=4, stride=2),
@@ -287,7 +287,7 @@ def resnet_v1_101(inputs,
                   spatial_squeeze=True,
                   reuse=None,
                   scope='resnet_v1_101'):
-  """ResNet_V2-101 model of [1]. See resnet_v1() for arg and return description."""
+  """ResNet_V2-101 Re_classifying of [1]. See resnet_v1() for arg and return description."""
   blocks = [
       resnet_v1_block('block1', base_depth=64, num_units=3, stride=2),
       resnet_v1_block('block2', base_depth=128, num_units=4, stride=2),
@@ -309,7 +309,7 @@ def resnet_v1_152(inputs,
                   spatial_squeeze=True,
                   reuse=None,
                   scope='resnet_v1_152'):
-  """ResNet_V2-152 model of [1]. See resnet_v1() for arg and return description."""
+  """ResNet_V2-152 Re_classifying of [1]. See resnet_v1() for arg and return description."""
   blocks = [
       resnet_v1_block('block1', base_depth=64, num_units=3, stride=2),
       resnet_v1_block('block2', base_depth=128, num_units=8, stride=2),
@@ -331,7 +331,7 @@ def resnet_v1_200(inputs,
                   spatial_squeeze=True,
                   reuse=None,
                   scope='resnet_v1_200'):
-  """ResNet_V2-200 model of [2]. See resnet_v1() for arg and return description."""
+  """ResNet_V2-200 Re_classifying of [2]. See resnet_v1() for arg and return description."""
   blocks = [
       resnet_v1_block('block1', base_depth=64, num_units=3, stride=2),
       resnet_v1_block('block2', base_depth=128, num_units=24, stride=2),

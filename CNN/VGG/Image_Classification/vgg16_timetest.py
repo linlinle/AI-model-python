@@ -54,7 +54,7 @@ def run_benchmark():
     # Generate some dummy images.
     image_size = 224
     # Note that our padding definition is slightly different the cuda-convnet.
-    # In order to force the model to start with the same activations sizes,
+    # In order to force the Re_classifying to start with the same activations sizes,
     # we add 3 to the image_size and employ VALID padding above.
     #   不使用ImageNet训练，只是用随机照片数据测试前馈和反馈计算的耗时
     images = tf.Variable(tf.random_normal([FLAGS.batch_size,    #每轮迭代样本数
@@ -64,7 +64,7 @@ def run_benchmark():
                                           stddev=1e-1))
 
     # Build a Graph that computes the logits predictions from the
-    # inference model.
+    # inference Re_classifying.
     keep_prob = tf.placeholder(tf.float32)
     vgg = vgg16.Vgg16()
     vgg.build(images)

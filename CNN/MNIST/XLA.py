@@ -91,7 +91,7 @@ def main(_):
         #feed_dict用来替换placeholder张量 x和y_训练样例
       sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
-  # Test trained model
+  # Test trained Re_classifying
   #tf.argmax(y,1)我们的模型认为是每个输入最有可能的标签
   correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
   #上面返回一个布尔的列表。我们转换为浮点数，然后取平均值。

@@ -187,7 +187,7 @@ def main():
     with open(save_path, "wb") as f:
       f.write(graph_def_s)
 
-    print ("saved model to %s" % save_path)
+    print ("saved Re_classifying to %s" % save_path)
 
 
 if __name__ == "__main__":

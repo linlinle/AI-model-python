@@ -35,7 +35,7 @@ def read_all_imgs(img_list, path='', n_threads=32):
     return imgs
 
 def train():
-    ## create folders to save result images and trained model
+    ## create folders to save result images and trained Re_classifying
     save_dir_ginit = "samples/{}_ginit".format(tl.global_flag['mode'])
     save_dir_gan = "samples/{}_gan".format(tl.global_flag['mode'])
     tl.files.exists_or_mkdir(save_dir_ginit)
@@ -181,7 +181,7 @@ def train():
             print("[*] save images")
             tl.vis.save_images(out, [ni, ni], save_dir_ginit+'/train_%d.png' % epoch)
 
-        ## save model
+        ## save Re_classifying
         if (epoch != 0) and (epoch % 10 == 0):
             tl.files.save_npz(net_g.all_params, name=checkpoint_dir+'/g_{}_init.npz'.format(tl.global_flag['mode']), sess=sess)
 
@@ -236,7 +236,7 @@ def train():
             print("[*] save images")
             tl.vis.save_images(out, [ni, ni], save_dir_gan+'/train_%d.png' % epoch)
 
-        ## save model
+        ## save Re_classifying
         if (epoch != 0) and (epoch % 10 == 0):
             tl.files.save_npz(net_g.all_params, name=checkpoint_dir+'/g_{}.npz'.format(tl.global_flag['mode']), sess=sess)
             tl.files.save_npz(net_d.all_params, name=checkpoint_dir+'/d_{}.npz'.format(tl.global_flag['mode']), sess=sess)

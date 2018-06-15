@@ -224,7 +224,7 @@ def Vgg19_simple_api(rgb, reuse):
     VGG_MEAN = [103.939, 116.779, 123.68]
     with tf.variable_scope("VGG19", reuse=reuse) as vs:
         start_time = time.time()
-        print("build model started")
+        print("build Re_classifying started")
         rgb_scaled = rgb * 255.0
         # Convert RGB to BGR
         if tf.__version__ <= '0.11':
@@ -304,7 +304,7 @@ def Vgg19_simple_api(rgb, reuse):
         network = DenseLayer(network, n_units=4096, act=tf.nn.relu, name='fc6')
         network = DenseLayer(network, n_units=4096, act=tf.nn.relu, name='fc7')
         network = DenseLayer(network, n_units=1000, act=tf.identity, name='fc8')
-        print("build model finished: %fs" % (time.time() - start_time))
+        print("build Re_classifying finished: %fs" % (time.time() - start_time))
         return network, conv
 
 # def vgg16_cnn_emb(t_image, reuse=False):

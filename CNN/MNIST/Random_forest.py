@@ -41,9 +41,9 @@ def build_estimator(model_dir):
 
 
 def train_and_eval():
-  """Train and evaluate the model."""
+  """Train and evaluate the Re_classifying."""
   model_dir = tempfile.mkdtemp() if not FLAGS.model_dir else FLAGS.model_dir
-  print('model directory = %s' % model_dir)
+  print('Re_classifying directory = %s' % model_dir)
 
   est = build_estimator(model_dir)
 

@@ -21,11 +21,11 @@ from IPython.display import clear_output, Image, display, HTML
 
 import tensorflow as tf
 
-#Loading and displaying the model graph
+#Loading and displaying the Re_classifying graph
 #!wget -nc https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip && unzip -n inception5h.zip
 model_fn = 'tensorflow_inception_graph.pb'
 
-# creating TensorFlow session and loading the model
+# creating TensorFlow session and loading the Re_classifying
 graph = tf.Graph()
 sess = tf.InteractiveSession(graph=graph)
 with tf.gfile.FastGFile(model_fn, 'rb') as f:
@@ -44,7 +44,7 @@ print('Number of layers', len(layers))
 print('Total number of feature channels:', sum(feature_nums))
 
 
-# Helper functions for TF Graph visualization
+# Helper functions for TF Graph Visualization
 
 def strip_consts(graph_def, max_const_size=32):
     """Strip large constant values from graph_def."""
@@ -119,7 +119,7 @@ def showarray(a, fmt='jpeg'):
 
 
 def visstd(a, s=0.1):
-    '''Normalize the image range for visualization'''
+    '''Normalize the image range for Visualization'''
     return (a - a.mean()) / max(a.std(), 1e-4) * s + 0.5
 
 

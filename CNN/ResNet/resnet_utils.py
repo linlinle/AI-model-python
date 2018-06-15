@@ -16,7 +16,7 @@
 
 Residual networks (ResNets) were proposed in:
   Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-  Deep Residual Learning for Image_Recognition. arXiv:1512.03385, 2015
+  Deep Residual Learning for Re_classfying. arXiv:1512.03385, 2015
 
 More variants were introduced in:
   Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
@@ -223,7 +223,7 @@ def resnet_arg_scope(weight_decay=0.0001,
     training ResNets from scratch, they might need to be tuned.
 
   Args:
-    weight_decay: The weight decay to use for regularizing the model.
+    weight_decay: The weight decay to use for regularizing the Re_classifying.
     batch_norm_decay: The moving average decay when estimating layer activation
       statistics in batch normalization.
     batch_norm_epsilon: Small constant to prevent division by zero when
@@ -255,7 +255,7 @@ def resnet_arg_scope(weight_decay=0.0001,
       # The following implies padding='SAME' for pool1, which makes feature
       # alignment easier for dense prediction tasks. This is also used in
       # https://github.com/facebook/fb.resnet.torch. However the accompanying
-      # code of 'Deep Residual Learning for Image_Recognition' uses
+      # code of 'Deep Residual Learning for Re_classfying' uses
       # padding='VALID' for pool1. You can switch to that choice by setting
       # slim.arg_scope([slim.max_pool2d], padding='VALID').
       with slim.arg_scope([slim.max_pool2d], padding='SAME') as arg_sc:

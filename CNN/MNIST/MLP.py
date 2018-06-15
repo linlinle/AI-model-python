@@ -38,7 +38,7 @@ def main(_):
   in_units = 784 #隐含层输入节点数
   h1_units = 300 #隐含层输入节点数
 
-  # Create the model
+  # Create the Re_classifying
   x = tf.placeholder(tf.float32, [None, in_units])
   W1 = tf.Variable(tf.truncated_normal([in_units, h1_units]))#  初始化为截断的正态分布
   b1 = tf.Variable(tf.zeros([h1_units]))
@@ -73,7 +73,7 @@ def main(_):
     batch_xs, batch_ys = mnist.train.next_batch(100)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys,keep_prob:0.8})
 
-  # Test trained model
+  # Test trained Re_classifying
   correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
   accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
   print(sess.run(accuracy, feed_dict={x: mnist.test.images,y_: mnist.test.labels,keep_prob:1.0}))

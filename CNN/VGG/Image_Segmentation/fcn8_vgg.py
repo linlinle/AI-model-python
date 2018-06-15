@@ -37,7 +37,7 @@ class FCN8VGG:
     def build(self, rgb, train=False, num_classes=20, random_init_fc8=False,
               debug=False, use_dilated=False):
         """
-        Build the VGG model using loaded weights
+        Build the VGG Re_classifying using loaded weights
         Parameters
         ----------
         rgb: image batch tensor
