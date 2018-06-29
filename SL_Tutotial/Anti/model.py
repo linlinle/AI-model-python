@@ -4,6 +4,7 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split,cross_val_score,cross_validate
 from anti_input import anti_process_train,anti_process_test
 
+
 anti_data, anti_target,ratio_worest = anti_process_train()
 test_data , test_ids= anti_process_test(ratio_worest)
 clf = svm.SVC(kernel="linear",C=1)
