@@ -32,7 +32,7 @@ def nms(boxes, overlap_threshold, mode='Union'):
     # initialize the list of picked indexes
     pick = []
 
-    # grab the coordinates of the bounding boxes
+    # 依次取出左上角和右下角坐标以及分类器得分(置信度)
     x1, y1, x2, y2, score = [boxes[:, i] for i in range(5)]
 
     area = (x2 - x1 + 1) * (y2 - y1 + 1)    #求取每个bbox的面积
@@ -41,8 +41,8 @@ def nms(boxes, overlap_threshold, mode='Union'):
     # keep looping while some indexes still remain in the indexes list
     while len(idxs) > 0:
         # 每次都从idxs的末尾开始取值，并将index放到pick列表中
-        last = len(idxs) - 1
-        i = idxs[last]
+        last = len(idxs) - 1    # 当前剩余框的数量
+        i = idxs[last]  # 选中最后一个，即得分最高的框
         pick.append(i)
 
         # 计算两个框的交集的左上角坐标（xx1，yy1）和右下角坐标（xx2，yy2），不管有无交集，都可以得到这4个值。
@@ -58,11 +58,12 @@ def nms(boxes, overlap_threshold, mode='Union'):
         h = np.maximum(0, yy2 - yy1 + 1)
 
         inter = w * h
+        # 不同定义下的IOU
         if mode == 'Min':       #mode默认采用’Union’
-            # 两个框的交集面积除以两个框中面积最小的那个框的面积
+            # 重叠面积与最小框面积的比值
             overlap = inter / np.minimum(area[i], area[idxs[:last]])
         else:
-            # 两个框的交集面积除以并集的面积
+            # 交集面积/并集面积
             overlap = inter / (area[i] + area[idxs[:last]] - inter)
 
         # 将idxs中overlap满足阈值的bbox的index删除

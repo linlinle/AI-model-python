@@ -19,6 +19,7 @@ def my_kernel(X, Y):
     M = np.array([[2,0],[0,1.0]])
     return np.dot(np.dot(X,M),Y.T)
 
+
 iris = datasets.load_iris()
 X = iris.data[:,:2]
 Y = iris.target

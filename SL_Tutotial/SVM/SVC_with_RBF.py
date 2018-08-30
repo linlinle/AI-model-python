@@ -8,12 +8,11 @@ from sklearn import svm
 
 xx, yy = np.meshgrid(np.linspace(-3,3,500),
                      np.linspace(-3,3,500))
-np.random.seed(0)# Seed the generator,This method is called when RandomState is initialized
-
+np.random.seed(0)
 X = np.random.randn(300,2)
 Y = np.logical_xor(X[:,0]>0,X[:,1]>0)
 
-clf = svm.NuSVC()
+clf = svm.NuSVC() # 默认RBF核函数
 clf.fit(X,Y)
 
 # plot the decision function for each datapoint on the grid
