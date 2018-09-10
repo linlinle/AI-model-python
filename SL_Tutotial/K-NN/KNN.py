@@ -3,33 +3,32 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def knnClassifier(X, dataset, labels, k):
     """
 
     :param X: 待预测样本(1*M)
     :param dataset: 数据集(N*M)
     :param labels: (N*1)
-    :param k: 距离最小的k个点
+    :param k: 距离最近的k个点
     :return:  出现次数最对的类
     """
-    datasetSize = dataset.shape[0]      # 样本数量
+    datasetSize = dataset.shape[0]                   # 样本数量
 
     #  计算与其他样本距离
-    diffMat = np.tile(X,(datasetSize,1)) - dataset
-    squrediffMat = diffMat**2
-    squreDistances = squrediffMat.sum(axis=1)   # 行合并，距离和
-    distances = squreDistances**0.5
+    diffMat = np.tile(X,(datasetSize,1)) - dataset   # 数据扩充
+    squrediffMat = diffMat**2                       # 欧式距离
+    squreDistances = squrediffMat.sum(axis=1)       # 距离和
+    distances = squreDistances**0.5                 # 平方根
 
     #   由小到大
-    sortedDistance = sorted(list(zip(distances,labels)))
+    sortedDistance = sorted(list(zip(distances,labels))) #将所有样本与X的距离进行排序
 
     # 选择距离最小的k个点
     classCount = dict()
     for i in range(k):
         voteLabel = sortedDistance[i][1]
-        classCount[voteLabel] = classCount.get(voteLabel,0) +1  #累计加一
-    sortedclassCount = sorted(classCount.items(), key=lambda x:x[1],reverse=True)   #由大到小
+        classCount[voteLabel] = classCount.get(voteLabel,0) +1  # 相同类别累计加一
+    sortedclassCount = sorted(classCount.items(), key=lambda x:x[1],reverse=True)   #不同类别出现次数，由大到小排序
     return sortedclassCount[0][0]
 
 
