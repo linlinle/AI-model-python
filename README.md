@@ -1,4 +1,2 @@
 # AI-models
-This is DeepLearning models based on tensorflow
-
-git diff test
+This is an example of machine learning and convolution neural network model
